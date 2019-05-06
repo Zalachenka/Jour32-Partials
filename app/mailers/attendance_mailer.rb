@@ -1,4 +1,6 @@
 class AttendanceMailer < ApplicationMailer 
+  default from: 'no-reply@eventbruh.fr'
+
   def confirmation_email(attendance, user)
     @attendance = attendance
     @user = user
