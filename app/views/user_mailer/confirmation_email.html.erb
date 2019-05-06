@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+  <title>Welcome email</title>
+</head>
+  <body>
+    <h1>Salut <%= @user.name %> et merci de vous être inscrit à cet evenement !</h1>
+    <p>
+      Tu t'es inscrit sur eventbrite-steven.herokuapp.com en utilisant l'e-mail suivant : <%= @user.email %>.
+    </p>
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    </p>
+    <p> À très vite sur eventbrite-steven.herokuapp.com !
+  </body>
+</html>
