@@ -1,6 +1,4 @@
 class Event < ApplicationRecord
-  after_create :confirmation_send
-
   validates :start_date, presence: true
   validates :duration, presence: true
   validates :title, presence: true, length: { in: 5..140 } 
@@ -21,9 +19,5 @@ class Event < ApplicationRecord
 
   def multiple_of_5
     duration%5 == 0
-  end
-
-  def confirmation_send
-    UserMailer.confirmation_email(self).deliver_now
   end
 end

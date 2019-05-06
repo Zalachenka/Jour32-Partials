@@ -8,10 +8,10 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Bienvenue chez nous !')
   end
 
-  # def confirmation_email(user)
-  #   @user = user 
-  #   @url  = 'https://eventbrite-steven.herokuapp.com/login' 
+  def confirmation_email(user)
+    @user = user
+    @url  = 'https://eventbrite-steven.herokuapp.com/login' 
 
-  #   mail(to: @user.email, subject: 'Bienvenue chez nous !') 
-  # end
+    mail(to: @user.email, subject: 'Bienvenue chez nous !') 
+  end
 end
