@@ -5,6 +5,6 @@ class Attendance < ApplicationRecord
   belongs_to :event
 
   def confirmation_send
-    UserMailer.confirmation_email(participant).deliver_now
+    UserMailer.confirmation_email(self, participant).deliver_now
   end
 end
