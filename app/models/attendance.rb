@@ -1,5 +1,6 @@
 class Attendance < ApplicationRecord
   after_create :confirmation_send
+  after_create :registration_send
 
   belongs_to :participant, class_name: "User"
   belongs_to :event
