@@ -1,4 +1,4 @@
-class AttendanceMailer < ActionMailer::Base
+class AttendanceMailer < ApplicationMailer 
   def confirmation_email(attendance, user)
     @attendance = attendance
     @user = user
