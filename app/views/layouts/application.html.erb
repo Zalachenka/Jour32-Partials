@@ -12,9 +12,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a href="">Sign in</a>
-        <a href="">Sign up</a>
-        <a href="">Login</a>
+        
+        <%= link_to "Create an event",  :class => "nav-link" %>
+        <%= link_to "My profile",  :class => "nav-link" %>
+        <%= link_to "Logout", :class => "nav-link", method: :delete %>
+
+        <%= link_to "Sign up", :class => "nav-link" %>
+        <%= link_to "Sign in", :class => "nav-link" %>
+
       </div>
     </div>
   </nav>
