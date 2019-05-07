@@ -1,0 +1,35 @@
+,<div class = "ml-5 mt-4">	
+	<h1>Create a new event</h1>
+
+	<p>
+		<%= form_tag events_path, method: :post do %>
+
+		<%= label_tag 'Start date' %> <br />
+		<%= text_field_tag 'start_date' %>
+		<br /> <br />
+
+		<%= label_tag 'Duration' %> <br />
+		<%= text_field_tag 'duration' %>
+		<br /> <br />
+
+		<%= label_tag 'Title' %> <br />
+		<%= text_field_tag 'title' %>
+		<br /> <br />		
+
+		<%= label_tag 'Description' %> <br />
+		<%= text_area_tag 'description' %>
+		<br /> <br />			
+
+		<%= label_tag 'Price' %> <br />
+		<%= text_field_tag 'price' %>
+		<br /> <br />
+
+		<%= label_tag 'Location' %> <br />
+		<%= text_field_tag 'location' %>
+		<br /> <br />
+
+		<%= submit_tag "Sign up", :class => 'btn-primary' %>
+
+		<% end %>
+	</p>
+</div>
