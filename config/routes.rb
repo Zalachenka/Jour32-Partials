@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   resources :events
 
   devise_for :users
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit]
 end
