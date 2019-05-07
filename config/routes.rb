@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :attendances
 
-  root "events#index"
+  root "home#index"
   resources :events
 
   devise_for :users
