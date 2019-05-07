@@ -8,7 +8,7 @@ Attendance.destroy_all
 Attendance.reset_pk_sequence
 
 10.times do
-  my_user = User.create!(email: Faker::Name.first_name + "@yopmail.com", encrypted_password: "foobar", description: Faker::TvShows::RickAndMorty.quote, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+  my_user = User.create!(email: Faker::Name.first_name + "@yopmail.com", encrypted_password: "foobar", description: Faker::TvShows::RickAndMorty.quote, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "foobar")
 end
 puts "Users created!"
 
