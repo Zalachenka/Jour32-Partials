@@ -82,3 +82,8 @@ gem 'activerecord-reset-pk-sequence'
 
 gem 'devise'
 
+gem 'bootstrap-sass'
+
+gem 'font-awesome-rails'
+
+
