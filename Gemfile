@@ -66,19 +66,21 @@ group :development do
   gem "binding_of_caller"
 end
 
-gem "letter_opener"
+gem "letter_opener" # ouvrir les mails dans browser
 
-gem "table_print"
+gem "table_print" # afficher BDD dans le terminal
 
-gem 'sendgrid-ruby'
+gem 'sendgrid-ruby' # envoie de mails
 
-gem 'dotenv-rails'
+gem 'dotenv-rails' 
 
-gem 'table_print'
+gem 'faker' # fake quotes names
 
-gem 'faker'
+gem 'activerecord-reset-pk-sequence' # réinitialise les id
 
-gem 'activerecord-reset-pk-sequence'
+gem 'devise' # pour les login
 
-gem 'devise'
+gem 'dotenv' # gérer les clés API
+
+gem 'stripe' # moyen de paiement
 

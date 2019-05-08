@@ -30,6 +30,9 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
 									<%= link_to 'Info', event_path(e.id), :class => "btn btn-sm btn-outline-info" %>
+									<% if user_signed_in? && not_participant_nor_admin(e) %>
+									<%= link_to 'Register', event_path(e.id), :class => "btn btn-sm btn-outline-secondary" %>
+									<% end %>
 								</div>
 								<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
 							</div>
