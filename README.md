@@ -1,3 +1,7 @@
-# EVENTBRITE
+# EVENTBRUH
 
-On copie Eventbrite... enfin on essaie
+site en prod : https://eventbruh.herokuapp.com/
+
+## CREDITS
+
+Projet réalisé par Romain Genestre et Steven Nguyen
