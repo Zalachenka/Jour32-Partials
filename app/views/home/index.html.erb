@@ -1,4 +1,36 @@
-<% @event.each do |e| %>
-	<%= e.title %>
-	<%= e.admin.first_name %>
-<% end %>
+<section class="jumbotron text-center" style="background-image: url(https://kid101.com/wp-content/uploads/2017/03/Cougar-Color-Run-Rummage-Sale.jpg);">
+	<div class="container">
+		<b><h1 class="jumbotron-heading mt-5 pb-3 text-light">Eventbruh</h1></b>
+		<p class="lead text-muted">Share your passion with a bruh network.</p>
+	</div>
+</section>
+
+<div class="album py-5 bg-light">
+	<div class="container">
+		<h5>Events near you</h5>
+		<p>See what's happening soon in your area.</p> 
+		<div class="row">
+			<% @event.each do |e| %>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow-sm">
+					<div class="d-flex w-100 justify-content-between">
+						<div class="card-body">
+							<h5 class="mb-1"><%= e.title %></h5>
+							<p class="mb-1"><%= e.admin.first_name %> <%= e.admin.last_name %></p>
+							<p class="mb-1"><small>at <%= e.location %></small></p><br>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<%= link_to 'Info', event_path(e.id), :class => "btn btn-sm btn-outline-secondary" %>
+								</div>
+								<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+

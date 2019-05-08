@@ -1,7 +1,19 @@
-<%= @event.title %>
-<%= @event.description %>
-<%= @event.attendances.count %>
-<%= @event.admin.email %>
-<%= @event.start_date %>
-<%= @event.location %>
-<%= @event.price %>
+<div class="card text-center">
+  <div class="card-header">
+    <h5><%= @event.title %></h5>
+  </div>
+  <div class="card-body">
+    <ul class="card-text">
+    	Description: <%= @event.description %><br>
+    	Location: <%= @event.location %><br>
+    	Price: $<%= @event.price %><br>
+    	Participants: <%= @event.attendances.count %><br><br>
+    	Contact: <%= @event.admin.email %><br>
+    </ul>
+  </div>
+  <div class="card-footer text-muted">
+   Start date: <%= @event.start_date.strftime("%Y-%m-%d") %>
+  </div>
+</div>
+
+
