@@ -1,35 +1,54 @@
-<div class="text-center py-5">
-	<h1>Create a new event</h1>
-
-	<p>
-		<%= form_tag events_path, method: :post do %>
-
-		<%= label_tag 'Start date' %> <br />
-		<%= text_field_tag 'start_date' %>
-		<br /> <br />
-
-		<%= label_tag 'Duration' %> <br />
-		<%= text_field_tag 'duration' %>
-		<br /> <br />
-
-		<%= label_tag 'Title' %> <br />
-		<%= text_field_tag 'title' %>
-		<br /> <br />		
-
-		<%= label_tag 'Description' %> <br />
-		<%= text_area_tag 'description' %>
-		<br /> <br />			
-
-		<%= label_tag 'Price' %> <br />
-		<%= text_field_tag 'price' %>
-		<br /> <br />
-
-		<%= label_tag 'Location' %> <br />
-		<%= text_field_tag 'location' %>
-		<br /> <br />
-
-		<%= submit_tag "Create", :class => 'btn-primary' %>
-
-		<% end %>
-	</p>
+<% if flash[:danger] %>
+<div class='alert alert-danger' role='alert'>
+	<%= flash[:success] %>
+	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+		<span class="close-button" aria-hidden='true'>&times</span>
+	</button>
 </div>
+<% end %>
+<div class="text-center py-5">
+
+	<h2>Create a new event</h2><br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<%= form_for @event, method: :post do |f|%>
+				<div class="form-group">
+					<%= label_tag 'Start date' %> <br />
+					<%= f.text_field 'start_date', class: "form-control text-center" %>
+				</div><br /> <br />
+
+				<div class="form-group">
+					<%= label_tag 'Duration' %> <br />
+					<%= f.text_field 'duration', class: "form-control text-center" %>
+				</div><br /> <br />
+
+				<div class="form-group">
+					<%= label_tag 'Title' %> <br />
+					<%= f.text_field 'title', class: "form-control text-center" %>
+				</div><br /> <br />		
+
+				<div class="form-group">
+					<%= label_tag 'Description' %> <br />
+					<%= f.text_area 'description', class: "form-control text-center" %>
+				</div><br /> <br />			
+
+				<div class="form-group">
+					<%= label_tag 'Price' %> <br />
+					<%= f.text_field 'price', class: "form-control text-center" %>
+				</div><br /> <br />
+
+				<div class="form-group">
+					<%= label_tag 'Location' %> <br />
+					<%= f.text_field 'location', class: "form-control text-center" %>
+				</div><br /> <br />
+
+				<%= submit_tag "Create", :class => 'btn btn-secondary' %>
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+

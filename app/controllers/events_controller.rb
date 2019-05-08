@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create!(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id)
+    @event = Event.new(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id)
     if @event.save
       flash[:success] = "Event created!"
       redirect_to root_path
