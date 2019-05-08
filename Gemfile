@@ -72,7 +72,7 @@ gem "table_print" # afficher BDD dans le terminal
 
 gem 'sendgrid-ruby' # envoie de mails
 
-gem 'dotenv-rails', groups: [:development,:test]
+gem 'dotenv-rails'
 
 gem 'faker' # fake quotes names
 
