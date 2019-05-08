@@ -4,4 +4,4 @@ site en prod : https://eventbruh.herokuapp.com/
 
 ## CREDITS
 
-Projet réalisé par Romain Genestre et Steven Nguyen
+Projet réalisé par Steven Nguyen
