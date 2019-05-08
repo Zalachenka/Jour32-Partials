@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :attendances
-
+  resources :events do
+    resources :attendances
+  end
+  
   root "home#index"
   resources :events
 

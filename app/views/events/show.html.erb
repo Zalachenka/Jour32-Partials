@@ -13,7 +13,10 @@
   </div>
   <div class="card-footer text-muted">
    Start date: <%= @event.start_date.strftime("%Y-%m-%d") %>
-  </div>
+ </div>
+ <% if user_signed_in? && not_participant_nor_admin(@event) %>
+ <%= link_to 'Register', event_attendances_path(@event.id), method: :post, :class => "btn btn-sm btn-outline-secondary" %>
+ <% end %>
 </div>
 
 
