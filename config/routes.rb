@@ -9,5 +9,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:show, :edit]
 
-  resources :charges
+  resources :events do
+    resources :charges
+  end
+
+  resources :users do
+    resources :events
+  end
 end

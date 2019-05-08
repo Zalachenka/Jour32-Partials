@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @event = Event.all
+    @event = Event.order("created_at ASC")
   end
 end

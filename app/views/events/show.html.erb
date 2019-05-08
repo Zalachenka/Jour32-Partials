@@ -1,3 +1,12 @@
+<% if flash[:success] %>
+<div class='alert alert-success' role='alert'>
+  <%= flash[:success] %>
+  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span class="close-button" aria-hidden='true'>&times</span>
+  </button>
+</div>
+<% end %>
+
 <div class="card text-center">
   <div class="card-header">
     <h5><%= @event.title %></h5>
@@ -12,11 +21,19 @@
     </ul>
   </div>
   <div class="card-footer text-muted">
-   Start date: <%= @event.start_date.strftime("%Y-%m-%d") %>
+   Start date: <%= @event.start_date.strftime("%Y-%m-%d") %><br>
+   <% if user_signed_in? && not_participant_nor_admin(@event) %>
+   <div class="container text-center">
+     <%= link_to 'Register', new_event_attendance_path(@event.id), method: :get, :class => "btn btn-sm btn-outline-success" %>
+     <% end %>
+     <% if user_signed_in? && current_user == @event.admin %>
+     <%= link_to 'Edit', edit_event_path(@event.id), :class => "btn btn-sm btn-outline-secondary" %>
+     <% end %>
+   </div>
  </div>
- <% if user_signed_in? && not_participant_nor_admin(@event) %>
-  <%= link_to 'Register', new_event_attendance_path(@event.id), method: :get, :class => "btn btn-sm btn-outline-secondary" %>
- <% end %>
 </div>
+
+
+
 
 
