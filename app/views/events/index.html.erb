@@ -1,3 +1,12 @@
+<% if flash[:success] %>
+<div class='alert alert-success' role='alert'>
+	<%= flash[:success] %>
+	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+		<span class="close-button" aria-hidden='true'>&times</span>
+	</button>
+</div>
+<% end %>
+
 <div class="album py-5 bg-light">
 	<div class="container">
 		<h5>Manage your events</h5><br>

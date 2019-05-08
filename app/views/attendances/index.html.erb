@@ -1,0 +1,22 @@
+<div class="album py-5 bg-light">
+	<div class="container">
+		<h5>All the attendees for <%= @event.title %> at <%= @event.location %></h5>
+		<p>The more, the better.</p> 
+		<div class="row">
+			<% @attendance.each do |a| %>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow-sm">
+					<div class="d-flex w-100 justify-content-between">
+						<div class="card-body">
+							<h6 class="mb-1"><%= User.find(a.participant_id).first_name %> <%= User.find(a.participant_id).last_name %></h6>
+							<p class="mb-1"><%= User.find(a.participant_id).email %></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+

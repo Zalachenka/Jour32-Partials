@@ -1,6 +1,10 @@
 class AttendancesController < ApplicationController
+  def index
+    @event = Event.find(params[:event_id])
+    @attendance = Attendance.where(event_id: params[:event_id])
+  end
 
-  def new
+  def new 
     @amount = Event.find(params[:event_id]).price * 100
   end
 

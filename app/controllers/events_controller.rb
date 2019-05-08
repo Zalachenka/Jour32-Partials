@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :admin?, only: [:update, :destroy]
+
   def index
     @event = Event.where(admin_id: current_user.id)
   end
@@ -39,6 +41,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @event.destroy
+    flash[:success] = "Event deleted!"
     redirect_to user_events_path(current_user.id)
   end
 
@@ -46,6 +49,13 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :admin_id)
+  end
+
+  def admin?
+    if current_user != Event.find(params[:id]).admin
+      flash[:danger] = "Your not the admin!"
+      redirect_to root_path
+    end
   end
 
 end
