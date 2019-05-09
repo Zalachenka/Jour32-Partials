@@ -84,3 +84,5 @@ gem 'dotenv' # gérer les clés API
 
 gem 'stripe' # moyen de paiement
 
+gem "aws-sdk-s3", require: false
+

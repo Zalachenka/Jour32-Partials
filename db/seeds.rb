@@ -7,7 +7,7 @@ Event.reset_pk_sequence
 Attendance.destroy_all
 Attendance.reset_pk_sequence
 
-30.times do
+10.times do
   my_user = User.create!(email: Faker::Name.first_name + "@yopmail.com", encrypted_password: "foobar", description: Faker::TvShows::RickAndMorty.quote, first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: "foobar")
 end
 puts "Users created!"
@@ -17,7 +17,7 @@ puts "Users created!"
 end
 puts "Events created!"
 
-30.times do
+10.times do
   my_attendance = Attendance.create!(stripe_customer_id: rand(1000..9999), participant: User.all[rand(0..9)], event: Event.all[rand(0..9)])
 end
 puts "Attendances created!"
