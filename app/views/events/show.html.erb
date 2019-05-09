@@ -7,33 +7,36 @@
 </div>
 <% end %>
 
-<div class="card text-center">
-  <div class="card-header">
-    <h5><%= @event.title %></h5>
+<section>
+  <div class="container">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-block m-5">
+            <h5 class="card-title"><%= @event.title %></h5>
+            <p class="card-text">Description: <%= @event.description %></p>
+            <p class="card-text">Location: <%= @event.location %></p>
+            <p class="card-text">Price: $<%= @event.price %></p>
+            <p class="card-text">Participants: <%= @event.attendances.count %> (<%= link_to 'see all', event_attendances_path(@event.id) %>)</p>
+            <p class="card-text">Contact: <%= @event.admin.email %></p>          
+            <% if user_signed_in? && not_participant_nor_admin(@event) %>
+            <div class="container text-center">
+             <%= link_to 'Register', new_event_attendance_path(@event.id), method: :get, :class => "btn btn-sm btn-outline-success" %>
+             <% end %>
+             <% if user_signed_in? && current_user == @event.admin %>
+             <%= link_to 'Edit', edit_event_path(@event.id), :class => "btn btn-sm btn-outline-secondary" %>
+             <%= link_to 'Delete', event_path(@event.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
+             <% end %>
+           </div>
+         </div>
+         <div class="col-md-6 p-5">
+          <%= image_tag @event.event_picture, alt: 'event picture', class: "event-picture" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card-body">
-    <ul class="card-text">
-    	Description: <%= @event.description %><br>
-    	Location: <%= @event.location %><br>
-    	Price: $<%= @event.price %><br>
-    	Participants: <%= @event.attendances.count %> (<%= link_to 'see all', event_attendances_path(@event.id) %>)<br><br>
-    	Contact: <%= @event.admin.email %><br>
-    </ul>
-  </div>
-  <div class="card-footer text-muted">
-   Start date: <%= @event.start_date.strftime("%Y-%m-%d") %><br>
-   <% if user_signed_in? && not_participant_nor_admin(@event) %>
-   <div class="container text-center">
-     <%= link_to 'Register', new_event_attendance_path(@event.id), method: :get, :class => "btn btn-sm btn-outline-success" %>
-     <% end %>
-     <% if user_signed_in? && current_user == @event.admin %>
-     <%= link_to 'Edit', edit_event_path(@event.id), :class => "btn btn-sm btn-outline-secondary" %>
-     <%= link_to 'Delete', event_path(@event.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
-     <% end %>
-   </div>
- </div>
 </div>
-
+</section>
 
 
 

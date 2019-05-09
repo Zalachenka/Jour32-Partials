@@ -13,6 +13,8 @@ class Event < ApplicationRecord
   has_many :users, through: :attendances
   belongs_to :admin, class_name: "User"
 
+  has_one_attached :event_picture
+
   def event_must_be_after_time_now
     start_date > Time.now
   end
