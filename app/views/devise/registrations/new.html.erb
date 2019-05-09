@@ -8,30 +8,24 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control text-center" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control text-center", placeholder: "email@email.com" %>
         </div><br>
         <div class="field form-group">
-          <%= f.label "first name" %><br />
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control text-center"  %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", class: "form-control text-center", placeholder: "First name"  %>
         </div><br>
-
         <div class="field form-group">
-          <%= f.label "last name" %><br />
-          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control text-center"  %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", class: "form-control text-center", placeholder: "Last name"  %>
         </div><br>
-
         <div class="field form-group">
-          <%= f.label :password %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password", class: "form-control text-center"  %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control text-center", placeholder: "Password #{@minimum_password_length} characters minimum)"  %>
+          <% else %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "form-control text-center", placeholder: "Password"  %>
+          <% end %>
         </div><br>
 
         <div class="field form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control text-center"  %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control text-center", placeholder: "Password confirmation"   %>
         </div><br>
 
         <div class="actions">

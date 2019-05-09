@@ -28,12 +28,12 @@
              <%= link_to 'Delete', event_path(@event.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
              <% end %>
            </div>
-         </div>
-         <div class="col-md-6 p-5">
+         <div class="col-md-6 m-5">
           <% if @event.event_picture.attached? %>
           <%= image_tag @event.event_picture, alt: 'event picture', class: "event-picture" %>
           <% end %>
         </div>
+         </div>
       </div>
     </div>
   </div>

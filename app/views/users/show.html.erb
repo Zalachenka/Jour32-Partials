@@ -5,12 +5,15 @@
 			<div class="card" style="width: 30rem;">
 				<div class="card-body">
 					<% if @user.avatar.attached? %>
-					<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div>
-					<% else %>
-					<small><p class="text-muted">image blank</p></small>
+					<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div><br>
 					<%= form_tag user_avatars_path(@user.id), multipart: true do %>
-					<%= file_field_tag :avatar %><br><br>
-					<%= submit_tag 'upload the image', :class => "btn btn-secondary", :style => "width: 10rem;" %>
+						<%= file_field_tag :avatar %><br>
+					<%= submit_tag 'change your avatar', :class => "btn btn-outline-secondary", :style => "width: 10rem;" %>
+					<% end %>
+					<% else %>
+					<%= form_tag user_avatars_path(@user.id), multipart: true do %>
+					<%= file_field_tag :avatar %>
+					<%= submit_tag 'change your avatar', :class => "btn btn-outline-secondary", :style => "width: 10rem;" %>
 					<% end %>
 					<% end %>
 					<div class="card-body">

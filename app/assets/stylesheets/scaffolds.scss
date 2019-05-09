@@ -29,9 +29,16 @@ h6 {
 }
 
 .avatar {
-	width: 150px;
-	border-radius: 50%;
+  width: 150px;
+  border-radius: 50%;
 }
+
+.avatar-min {
+	width: 100px;
+	border-radius: 50%;
+	padding-right: 1em;
+}
+
 
 .event-picture {
 	width: 100%;
