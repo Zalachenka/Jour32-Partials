@@ -25,14 +25,15 @@
 									<%= link_to 'Edit', edit_event_path(e.id), :class => "btn btn-sm btn-outline-secondary" %>							
 									<%= link_to 'Delete', event_path(e.id), :class => "btn btn-sm btn-outline-danger", :confirm => "You are about to delete this event. Are you sure?", method: :delete %>						
 								</div>
-									<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
-								</div>
+								<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
 							</div>
 						</div>
 					</div>
 				</div>
-				<% end %>
 			</div>
+			<% end %>
 		</div>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
