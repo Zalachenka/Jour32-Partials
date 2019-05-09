@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'avatars/show'
   resources :events do
     resources :attendances
   end
@@ -15,5 +16,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :events
+  end
+
+  resources :users, only: [:show] do
+    resources :avatars, only: [:create]
   end
 end
