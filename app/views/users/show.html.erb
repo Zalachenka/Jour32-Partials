@@ -1,13 +1,14 @@
-<div id="card_user">
+
+<div class="container">
 	<div class="card text-center py-5" style="width: 30rem;">
 		<% if @user.avatar.attached? %>
-			<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div>
+		<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div>
 		<% else %>
-			<small><p class="text-muted">image blank</p></small>
-			<%= form_tag user_avatars_path(@user.id), multipart: true do %>
-				<%= file_field_tag :avatar %><br><br>
-				<%= submit_tag 'upload the image', :class => "btn btn-secondary", :style => "width: 10rem;" %>
-			<% end %>
+		<small><p class="text-muted">image blank</p></small>
+		<%= form_tag user_avatars_path(@user.id), multipart: true do %>
+		<%= file_field_tag :avatar %><br><br>
+		<%= submit_tag 'upload the image', :class => "btn btn-secondary", :style => "width: 10rem;" %>
+		<% end %>
 		<% end %>
 		<div class="card-body">
 			<h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
@@ -17,6 +18,7 @@
 		</div>
 	</div>
 </div>
+
 
 
 
