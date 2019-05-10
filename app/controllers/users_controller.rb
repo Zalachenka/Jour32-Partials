@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @event = Event.where(admin_id: params[:id])
   end
 
   def edit
@@ -21,6 +22,14 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
+    @event = Event.where(admin_id: @user.id) #supprime les events et les participations associées à l'utilisateur
+    @attendance = Attendance.where(participant_id: @user.id)
+    @attendance.each do |a|
+      a.destroy
+    end
+    @event.each do |e|
+      e.destroy
+    end
     @user.destroy
     flash[:success] = "User deleted!"
     redirect_to admin_index_path

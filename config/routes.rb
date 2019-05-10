@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :admin
 
+  resources :event_submissions
+
 end

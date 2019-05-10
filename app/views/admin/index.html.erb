@@ -11,6 +11,25 @@
 
 <div class="album py-5 bg-light">
 	<div class="container">
+		<h5>Pending events</h5>
+		<div class="row">
+			<% @event.each do |e| %>
+			<% if e.validated == nil %>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow-sm">
+					<div class="d-flex w-100 justify-content-between">
+						<div class="card-body">
+							<b><p class="mb-1"><%= e.title %></p></b>
+							<%= link_to "Info", event_path(e.id), :class => "btn btn-sm btn-outline-info" %>
+							<%= link_to "Validate", edit_event_path(e.id), :class => "btn btn-sm btn-outline-success" %>
+							<%= link_to "Unvalidate", event_path(e.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div><br>
 		<h5>Manage your users</h5>
 		<div class="row">
 			<% @user.each do |u| %>

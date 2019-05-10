@@ -4,6 +4,7 @@ class AdminController < ApplicationController
   def index
     @admin = User.find(current_user.id)
     @user = User.all.order("created_at ASC")
+    @event = Event.all
   end
 
   private

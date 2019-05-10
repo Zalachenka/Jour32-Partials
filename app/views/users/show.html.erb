@@ -7,7 +7,7 @@
 					<% if @user.avatar.attached? %>
 					<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div><br>
 					<%= form_tag user_avatars_path(@user.id), multipart: true do %>
-						<%= file_field_tag :avatar %><br>
+					<%= file_field_tag :avatar %><br>
 					<%= submit_tag 'change your avatar', :class => "btn btn-outline-secondary", :style => "width: 10rem;" %>
 					<% end %>
 					<% else %>
@@ -28,9 +28,21 @@
 						<% end %>
 					</div>
 				</div>
+				<div class="list-group">
+					<h5>My events</h5>
+					<% @event.each do |e| %>
+					<% if e.validated == true %>
+					<%= link_to "#{e.title}", event_path(e.id), :class => "list-group-item list-group-item-action" %>
+					<% end %>
+					<% end %>
+				</div>
 			</div>
+
 		</div>
+
 	</div>
+
+
 </div>
 
 
