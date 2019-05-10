@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'event_pictures/create'
-  get 'avatars/show'
+
   resources :events do
     resources :attendances
   end
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
   resources :events
 
   devise_for :users
+
   resources :users, only: [:show, :edit]
 
   resources :events do
@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :event_pictures, only: [:create]
   end
 
-  namespace :admin do
-    root "admin#index"
-  end
+  resources :admin
+
 end

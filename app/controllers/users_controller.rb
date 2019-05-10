@@ -12,20 +12,30 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+    if @user.update(user_params)
       redirect_to @user
     else
       render :edit
     end
-  end 
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "User deleted!"
+    redirect_to admin_index_path
+  end
 
   private
 
+  def user_params
+    params.require(:user).permit(:email, :first_name, :last_name, :description)
+  end
   def authenticate?
     redirect_to root_path unless user_signed_in?
   end
 
   def your_profile?
-    redirect_to root_path if current_user != User.find(params[:id])
+    redirect_to root_path if current_user.is_admin != true && current_user != User.find(params[:id])
   end
 end

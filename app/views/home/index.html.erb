@@ -5,6 +5,13 @@
 		<span class="close-button" aria-hidden='true'>&times</span>
 	</button>
 </div>
+<% elsif flash[:danger] %>
+<div class='alert alert-danger' role='alert'>
+	<%= flash[:danger] %>
+	<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+		<span class="close-button" aria-hidden='true'>&times</span>
+	</button>
+</div>
 <% end %>
 
 <section class="jumbotron text-center" style="background-image: url(https://kid101.com/wp-content/uploads/2017/03/Cougar-Color-Run-Rummage-Sale.jpg);">
