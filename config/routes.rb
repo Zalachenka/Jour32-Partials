@@ -29,6 +29,8 @@ Rails.application.routes.draw do
 
   resources :admin
 
-  resources :event_submissions
+  resources :event_submissions, only: [:edit, :update]
+
+  resources :user_validations, only: [:edit, :update]
 
 end

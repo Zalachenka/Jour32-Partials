@@ -12,7 +12,7 @@
     <div class="card">
       <div class="row">
         <div class="col-md-6">
-          <% if @event.validated == true || current_user.is_admin == true %>
+          <% if current_user.validated == true && @event.validated == true || current_user.is_admin == true %>
           <div class="card-block m-5">
             <h5 class="card-title"><%= @event.title %></h5>
             <p class="card-text"><b>Description:</b> <%= @event.description %></p>

@@ -12,6 +12,7 @@
 
 	<div class="container">
 		<div class="row">
+			<% if current_user.validated == true %>
 			<div class="col-md-6 offset-md-3">
 				<%= form_tag events_path, method: :post, multipart: true do%>
 				<div class="form-group">
@@ -47,6 +48,9 @@
 
 				<%= submit_tag "Create", :class => 'btn btn-secondary' %>
 
+				<% end %>
+				<% else %>
+				<p class="container">Pending validation of your account...</p>
 				<% end %>
 			</div>
 		</div>
