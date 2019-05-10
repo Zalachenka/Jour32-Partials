@@ -2,6 +2,6 @@
 
 site en prod : https://eventbruh.herokuapp.com/
 
-## CREDITS
+### CREDITS
 
 Projet réalisé par Steven Nguyen
