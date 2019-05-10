@@ -12,4 +12,5 @@ class Attendance < ApplicationRecord
   def registration_send
     AdminMailer.registration_email(self, event.admin, participant).deliver_now
   end
+
 end

@@ -26,4 +26,8 @@ Rails.application.routes.draw do
   resources :events do
     resources :event_pictures, only: [:create]
   end
+
+  namespace :admin do
+    root "admin#index"
+  end
 end

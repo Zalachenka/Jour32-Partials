@@ -14,7 +14,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'mini_racer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby # à activer à la création d'un projet
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -72,7 +72,7 @@ gem "table_print" # afficher BDD dans le terminal
 
 gem 'sendgrid-ruby' # envoie de mails
 
-gem 'dotenv-rails'
+gem 'dotenv-rails' # gérer les clés API
 
 gem 'faker' # fake quotes names
 
@@ -84,5 +84,5 @@ gem 'dotenv' # gérer les clés API
 
 gem 'stripe' # moyen de paiement
 
-gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false # API amozon pour stocker les images
 
