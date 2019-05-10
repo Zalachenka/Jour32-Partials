@@ -10,7 +10,14 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id, validated: nil)
+    if current_user.is_admin
+      validation = true
+    else
+      validation = nil
+    end
+    
+    @event = Event.new(start_date: params[:start_date], duration: params[:duration], title: params[:title], description: params[:description], price: params[:price], location: params[:location], admin_id: current_user.id, validated: validation)
+  
     @event.event_picture.attach(params[:event_picture])
     if @event.save
       flash[:success] = "Event created!"
@@ -41,7 +48,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    @attendance = Attendance.where(@event.id) # quand on supprime un event on supprime toutes les participations
+    @attendance = Attendance.where(event_id: @event.id) # quand on supprime un event on supprime toutes les participations
     @attendance.each do |a|
       a.destroy
     end
