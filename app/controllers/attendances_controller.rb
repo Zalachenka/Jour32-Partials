@@ -15,7 +15,6 @@ class AttendancesController < ApplicationController
   def create
     @amount = Event.find(params[:event_id]).price * 100
 
-
     customer = Stripe::Customer.create(email: params[:stripeEmail], source: params[:stripeToken])
     charge = Stripe::Charge.create(customer: customer.id, amount: @amount, description: 'Rails Stripe customer', currency: 'usd')
 

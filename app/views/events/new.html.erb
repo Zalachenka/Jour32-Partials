@@ -12,7 +12,7 @@
 
 	<div class="container">
 		<div class="row">
-			<% if current_user.validated == true %>
+			<% if is_validated(current_user) %>
 			<div class="col-md-6 offset-md-3">
 				<%= form_tag events_path, method: :post, multipart: true do%>
 				<div class="form-group">

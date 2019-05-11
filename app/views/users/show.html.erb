@@ -4,7 +4,7 @@
 		<div class="col-md-5 offset-md-3">
 			<div class="card" style="width: 30rem;">
 				<div class="card-body">
-					<% if @user.avatar.attached? %>
+					<% if avatar_is_attached(@user) %>
 					<div class="text-center"><%= image_tag @user.avatar, alt: 'avatar', class: "avatar" %></div><br>
 					<%= form_tag user_avatars_path(@user.id), multipart: true do %>
 					<%= file_field_tag :avatar %><br>
@@ -20,7 +20,7 @@
 						<h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
 						<h6 class="card-subtitle mb-2 text-muted"><%= @user.email %></h6>
 						<p class="card-text"><%= @user.description %></p>
-						<% if current_user.is_admin == true %>
+						<% if current_user_is_admin %>
 						<%= link_to 'Edit profile', edit_user_path(@user.id) %><br>
 						<%= link_to 'Back', admin_index_path %>
 						<% else %>
@@ -31,18 +31,14 @@
 				<div class="list-group">
 					<h5>My events</h5>
 					<% @event.each do |e| %>
-					<% if e.validated == true %>
+					<% if is_validated(e) %>
 					<%= link_to "#{e.title}", event_path(e.id), :class => "list-group-item list-group-item-action" %>
 					<% end %>
 					<% end %>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
-
-
 </div>
 
 

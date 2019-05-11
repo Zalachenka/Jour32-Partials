@@ -18,6 +18,9 @@
 	<div class="container">
 		<b><h1 class="jumbotron-heading mt-5 pb-3 text-light" style="font-family: arial;">Eventbruh</h1></b>
 		<p class="lead text-light" style="font-family: arial;">Share your passion with a bruh network.</p>
+		<% if user_signed_in? == false %>
+		<%= link_to 'Start now', new_user_registration_path, :class => "btn btn-lg btn-info" %>
+		<% end %>
 	</div>
 </section>
 
@@ -37,7 +40,11 @@
 							<p class="mb-1"><small>at <%= e.location %></small></p><br>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="btn-group">
+									<% if user_signed_in? %>
 									<%= link_to 'Info', event_path(e.id), :class => "btn btn-sm btn-outline-info" %>
+									<% else %>
+									<%= link_to 'Info', new_user_session_path, :class => "btn btn-sm btn-outline-info" %>
+									<% end %>
 								</div>
 								<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
 							</div>

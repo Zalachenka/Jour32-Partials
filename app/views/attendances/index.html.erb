@@ -8,25 +8,21 @@
 				<div class="card mb-3 shadow-sm">
 					<div class="d-flex w-100 justify-content-between">
 						<div class="card-body">
-							<h6 class="mb-1"><%= User.find(a.participant_id).first_name %> <%= User.find(a.participant_id).last_name %></h6>
-							<p class="mb-1"><%= User.find(a.participant_id).email %></p>
+							<h6 class="mb-1"><%= participant(a).first_name %> <%= participant(a).last_name %></h6>
+							<p class="mb-1"><%= participant(a).email %></p>
 						</div>
-											<div class="col-md-6 p-5">
-						<% if User.find(a.participant_id).avatar.attached? %>
-						<%= image_tag User.find(a.participant_id).avatar, alt: 'avatar', class: "avatar-min" %>
-						<% else %>
-						<%= image_tag "#{rand(1..3)}.jpeg", alt: 'avatar', class: "avatar-min" %>
-						<% end %>
+						<div class="col-md-6 p-5">
+							<% if avatar_is_attached(participant(a)) %>
+							<%= image_tag participant(a).avatar, alt: 'avatar', class: "avatar-min" %>
+							<% else %>
+							<%= image_tag "#{rand(1..3)}.jpeg", alt: 'avatar', class: "avatar-min" %>
+							<% end %>
+						</div>
 					</div>
-					</div>
-
 				</div>
 			</div>
 			<% end %>
-
 		</div>
-
 	</div>
-
 </div>
 
