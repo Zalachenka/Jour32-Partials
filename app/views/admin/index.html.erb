@@ -1,3 +1,4 @@
+<!-- Alert -->
 <% if flash[:success] %>
 <div class='alert alert-success' role='alert'>
 	<%= flash[:success] %>
@@ -7,6 +8,9 @@
 </div>
 <% end %>
 
+<!-- Dashboard -->
+
+<!-- Pending events, validate or refuse & info -->
 <div class="album py-5 bg-light">
 	<div class="container">
 		<h3>Welcome to your dashboard, <%= @admin.first_name %></h3><br>
@@ -22,7 +26,7 @@
 							<p class="mb-1"><%= e.admin.first_name %> <%= e.admin.last_name %></p>
 							<%= link_to "Info", event_path(e.id), :class => "btn btn-sm btn-outline-info" %>
 							<%= link_to "Validate", edit_event_submission_path(e.id), :class => "btn btn-sm btn-outline-success" %>
-							<%= link_to "Unvalidate", event_path(e.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
+							<%= link_to "Refuse", event_path(e.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
 						</div>
 					</div>
 				</div>
@@ -31,6 +35,7 @@
 			<% end %>
 		</div><br>
 
+<!-- Pending sign up, with validate or refuse -->
 		<h5>Pending sign up</h5>
 		<div class="row">
 			<% @user.each do |u| %>
@@ -42,7 +47,7 @@
 							<b><p class="mb-1"><%= u.first_name %> <%= u.last_name %></p></b>
 							<p class="mb-1"><%= u.email %></p>
 							<%= link_to 'Validate', edit_user_validation_path(u.id), :class => "btn btn-sm btn-outline-success" %>
-							<%= link_to 'Unvalidate', user_path(u.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
+							<%= link_to 'Refuse', user_path(u.id), method: :delete, :class => "btn btn-sm btn-outline-danger" %>
 							<div class="d-flex justify-content-between align-items-center">
 							</div>
 						</div>
@@ -53,6 +58,7 @@
 			<% end %>
 		</div><br>
 
+<!-- List of users, delete or info -->
 		<h5>Manage your users</h5>
 		<div class="row">
 			<% @user.each do |u| %>
