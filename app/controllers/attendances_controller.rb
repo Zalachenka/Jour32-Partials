@@ -6,17 +6,19 @@ class AttendancesController < ApplicationController
 
   def new 
     @amount = Event.find(params[:event_id]).price
-    if @amount == 0
-      @attendance = Attendance.create(stripe_customer_id: rand(1000..9999), participant_id: current_user.id, event_id: params[:event_id])
-      redirect_to root_path
-    end
+    FreePrice.new(params[:event_id], current_user.id, @amount).perform
+    redirect_to root_path if @amount == 0
   end
 
   def create
-    @amount = Event.find(params[:event_id]).price * 100
+    @amount = Event.find(params[:event_id]).price
 
-    customer = Stripe::Customer.create(email: params[:stripeEmail], source: params[:stripeToken])
-    charge = Stripe::Charge.create(customer: customer.id, amount: @amount, description: 'Rails Stripe customer', currency: 'usd')
+    customer = Stripe::Customer.create({email: params[:stripEmail], source: params[:stripeToken]})
+    charge = Stripe::Charge.create({customer: customer.id, amount: @amount, description: 'Rails Stripe customer', currency: 'usd'})
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
 
     @attendance = Attendance.new(stripe_customer_id: customer.id, participant_id: current_user.id, event_id: params[:event_id])
     if @attendance.save

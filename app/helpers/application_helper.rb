@@ -3,8 +3,8 @@ module ApplicationHelper
     current_user != event.admin && Attendance.where(event_id: event.id, participant_id: current_user.id).exists? == false
   end
 
-  def is_validated(object)
-    object.validated == true
+  def is_validated(input)
+    input.validated == true
   end
 
   def current_user_is_admin

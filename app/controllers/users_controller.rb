@@ -21,15 +21,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    #supprime les events et les participations associées à l'utilisateur
     @user = User.find(params[:id])
-    @event = Event.where(admin_id: @user.id) #supprime les events et les participations associées à l'utilisateur
-    @attendance = Attendance.where(participant_id: @user.id)
-    @attendance.each do |a|
-      a.destroy
-    end
-    @event.each do |e|
-      e.destroy
-    end
+    UserDelete.new(Event.where(admin_id: @user.id), Attendance.where(participant_id: @user.id)).perform
     @user.destroy
     flash[:success] = "User deleted!"
     redirect_to admin_index_path
@@ -40,6 +34,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :description)
   end
+
   def authenticate?
     redirect_to root_path unless user_signed_in?
   end

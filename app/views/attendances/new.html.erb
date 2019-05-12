@@ -14,7 +14,7 @@
             <% end %>
             <label class="amount">
               <h4>Registration fees</h4>
-              <h6 class="card-subtitle mb-2 text-muted">You need to pay $<%= @amount/100 %> in order to participate.</h6> 
+              <h6 class="card-subtitle mb-2 text-muted">You need to pay $<%= @amount %> in order to participate.</h6> 
               <p>Click on the payment button bellow. The profits will go to the startup nation. No compromise.</p>
               </label>
             </article>
@@ -22,7 +22,7 @@
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Registration fees"
-            data-amount="<%= @amount.to_i %>"
+            data-amount="<%= @amount * 100 %>"
             data-locale="auto"></script>
             <% end %>
           </div>
