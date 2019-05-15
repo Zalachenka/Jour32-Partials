@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="stylesheet" href="style/custom.css">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	<title>City Events</title>
+</head>
+<body>
+	<div class="row">
+			<% @event.each do |e| %>
+			<% if e.validated == true %>
+			<div class="col-md-4">
+				<div class="card mb-3 shadow-sm">
+					<div class="d-flex w-100 justify-content-between">
+						<div class="card-body">
+							<h6 class="mb-1"><%= e.title %></h6>
+							<p class="mb-1"><%= e.admin.first_name %> <%= e.admin.last_name %></p>
+							<p class="mb-1"><small>at <%= e.location %></small></p><br>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<% if user_signed_in? %>
+									<%= link_to 'Info', event_path(e.id), :class => "btn btn-sm btn-outline-info" %>
+									<% else %>
+									<%= link_to 'Info', new_user_session_path, :class => "btn btn-sm btn-outline-info" %>
+									<% end %>
+								</div>
+								<small class="text-muted">Start date: <%= e.start_date.strftime("%Y-%m-%d") %></small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% end %>
+			<% end %>
+		</div>
+</body>
+</html>
