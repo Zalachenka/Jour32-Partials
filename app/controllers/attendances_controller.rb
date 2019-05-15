@@ -22,10 +22,10 @@ class AttendancesController < ApplicationController
 
     @attendance = Attendance.new(stripe_customer_id: customer.id, participant_id: current_user.id, event_id: params[:event_id])
     if @attendance.save
-      flash[:success] = "You have been successfully registered!"
+      flash.now[:success] = "You have been successfully registered!"
       redirect_to root_path
     else
-      flash[:danger] = "Error"
+      flash.now[:danger] = "Error"
       render "new"
     end
   end

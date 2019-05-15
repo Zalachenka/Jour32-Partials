@@ -1,7 +1,7 @@
 class UserValidationsController < ApplicationController
   def edit
     @user = User.find(params[:id]).update(validated: true)
-    flash[:success] = "User validated"
+    flash.now[:success] = "User validated"
     redirect_to admin_index_path
   end
 

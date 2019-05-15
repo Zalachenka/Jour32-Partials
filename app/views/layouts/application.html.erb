@@ -15,59 +15,25 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <a href="/"><img id="logo" src="https://tbncdn.freelogodesign.org/8ad2e3c5-e051-4ec2-8b2a-dc407a4db6fe.png?1557270347206"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <b><%= link_to "Create an event", new_event_path, :class => "nav-link" %></b>
-        </li>        
-        <li class="nav-item">
-          <div class="nav-link"><%= "|" %></div>
-        </li>
-        <li class="nav-item">
-          <%= link_to "My events", user_events_path(current_user.id), :class => "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "My profile", user_path(current_user.id), :class => "nav-link" %>
-        </li>
-        <% if current_user.is_admin == true %>
-        <li class="nav-item">
-          <%= link_to "Dashboard", admin_index_path, :class => "nav-link" %>
-        </li>
-        <% end %>
-        <li class="nav-item">
-          <%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
-        </li>
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, :class => "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign in", new_user_session_path, :class => "nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
+<body class="bg-light">
+
+  <%= render "layouts/header" %>
+  <%= render "layouts/flash" %>
 
   <div class="album bg-light">
 
     <%= yield %>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <%= render "layouts/footer" %>    
 
   </div>
-</body>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
+
+</body>
 </html>
 
 

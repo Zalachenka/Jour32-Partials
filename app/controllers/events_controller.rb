@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       flash[:success] = "Event created!"
       redirect_to root_path
     else
-      flash[:danger] = "Invalid event"
+      flash.now[:danger] = "Invalid event"
       render "new"
     end
   end
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      flash[:success] = "Your event has been successfully updated!"
+      flash.now[:success] = "Your event has been successfully updated!"
       redirect_to event_path(params[:id])
     else
       render :edit
@@ -42,7 +42,6 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-
     # quand on supprime un event on supprime toutes les participations
     EventDelete.new(Attendance.where(event_id: @event.id)).perform 
 
@@ -50,7 +49,7 @@ class EventsController < ApplicationController
     flash[:success] = "Event deleted!"
     if current_user.is_admin != true 
       redirect_to user_events_path(current_user.id)
-    else 
+    else
       redirect_to admin_index_path
     end
   end

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a href="/"><img id="logo" src="https://tbncdn.freelogodesign.org/8ad2e3c5-e051-4ec2-8b2a-dc407a4db6fe.png?1557270347206"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <b><%= link_to "Create an event", new_event_path, :class => "nav-link" %></b>
+      </li>        
+      <li class="nav-item">
+        <div class="nav-link"><%= "|" %></div>
+      </li>
+      <li class="nav-item">
+        <%= link_to "My events", user_events_path(current_user.id), :class => "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "My profile", user_path(current_user.id), :class => "nav-link" %>
+      </li>
+      <% if current_user.is_admin == true %>
+      <li class="nav-item">
+        <%= link_to "Dashboard", admin_index_path, :class => "nav-link" %>
+      </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
+      </li>
+      <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign up", new_user_registration_path, :class => "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign in", new_user_session_path, :class => "nav-link" %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
