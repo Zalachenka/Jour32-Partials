@@ -1,3 +1,8 @@
+.navbar {
+	height: 90px;
+	border-bottom: 1px solid #ADADAD;
+}
+
 #logo {
 	width: 80px;
 	height:80px;
@@ -5,6 +10,8 @@
 
 .jumbotron {
 	height:500px;
+	border-radius: 0px !important;
+	background: url(https://kid101.com/wp-content/uploads/2017/03/Cougar-Color-Run-Rummage-Sale.jpg);
 }
 
 .jumbotron-heading {
@@ -29,7 +36,7 @@ h6 {
 }
 
 .avatar {
-  width: 150px;
+	width: 150px;
 }
 
 .avatar-min {
@@ -44,5 +51,18 @@ h6 {
 	padding-right: 25px;
 	width: 100%;
 	height: auto;
-    background-size: cover;
+	background-size: cover;
+}
+
+.page-footer {
+	margin-bottom: 0;
+	color: white;
+}
+
+.page-footer a {
+	color: white;
+}
+
+.page-footer a:hover {
+	color: white;
 }

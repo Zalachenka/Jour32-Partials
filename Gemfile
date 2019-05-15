@@ -86,3 +86,6 @@ gem 'stripe' # moyen de paiement
 
 gem "aws-sdk-s3", require: false # API amozon pour stocker les images
 
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
+
